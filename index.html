@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Message Display Test</title><!--<button type="button" onclick="alert('Opening Sheets...')"><a href="https://docs.google.com/spreadsheets/d/1zM6I2wbKIdV8Ov6jpXZTXIn4Gj4g0Ke7jby-_uKzwNw/edit#gid=0">Back to Sheets</a></button>-->
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <script>
+    $('#ma').click(function() {​
+    var txt = $(this).text();
+    console.log('po');
+ }​);
+    </script>
+    <style>
+    table{​
+    border-collapse:collapse;
+    width: 100%;
+    border-bottom:1pt solid #dddddd;
+    }​
+    td,th {​
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }​
+    </style>
+  </head>
+  <body style="padding:10em;">
+  <h1 style="text-align:center">Messages</h1>
+    <table align="center" style="width:820px">
+    <thead>
+    <tr>
+    <th>Unique_ID</th>
+    <th>Date</th>
+    <th>Attachments</th>
+    <th>Subject</th>
+    <th>Mail Document</th>
+    </tr>
+    </thead>
+    <tbody>
+   <? for(var m=0;m<messages.length;m++){​  ?>
+      <? if((new RegExp(number_req,"g").exec(messages[m].getSubject()))!=null){​ ?>
+        <tr>
+        <td><?= messages[m].getSubject() ?></td>
+        <td><?= messages[m].getDate() ?></td>
+        <td><?= messages[m].getAttachments() ?></td>
+        <td><?= messages[m].getSubject() ?></td>
+        <td><a href="https://mail.google.com/mail/u/0/#inbox/<?= messages[m].getId() ?>"type="button" class="theButton" id="ma" >Mail Document/s</a></td>
+        </tr>
+    <? }​?>
+    <? }​?>
+    </tbody>
+    </table>
+  </body>
+</html>
